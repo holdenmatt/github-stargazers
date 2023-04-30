@@ -2,6 +2,14 @@
 
 Aggregate github star counts from GH Archive (via BigQuery) and publish as Parquet.
 
+## Download data
+
+You can download the latest Parquet file from:
+
+```
+https://raw.githubusercontent.com/holdenmatt/github-stargazers/main/data/github-repos.parquet
+```
+
 ## Run locally
 
 First, install dependencies:
@@ -33,7 +41,7 @@ GOOGLE_CLIENT_EMAIL=<user>@<host>.iam.gserviceaccount.com
 GOOGLE_PRIVATE_KEY=<private key>
 ```
 
-Then run it:
+Run the script to generate a new Parquet file:
 
 ```
 python src/main.py

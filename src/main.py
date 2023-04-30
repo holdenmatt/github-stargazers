@@ -29,9 +29,7 @@ with open("src/query.sql", "r") as f:
 arrow = client.query(sql).to_arrow(create_bqstorage_client=True)
 
 parquet_path = "data/github-repos.parquet"
-compression = "brotli" # This method results in smallest file size
-
-pq.write_table(arrow, parquet_path, use_dictionary=True, compression=compression)
+pq.write_table(arrow, parquet_path, use_dictionary=True, compression="zstd")
 
 print("Rows: ", arrow.num_rows)
 print(f"Arrow size: {arrow.nbytes} bytes")
