@@ -3,7 +3,7 @@ WITH star_events AS (
     repo.name as repo,
     actor.id as actor_id,
     created_at
-  FROM `githubarchive.month.2015*`
+  FROM `githubarchive.month.*`
   WHERE type="WatchEvent"
 ),
 
