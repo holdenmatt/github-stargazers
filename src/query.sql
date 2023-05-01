@@ -4,7 +4,9 @@ WITH star_events AS (
     actor.id as actor_id,
     created_at
   FROM `githubarchive.month.*`
-  WHERE type="WatchEvent"
+  WHERE
+    type = "WatchEvent"
+    AND repo.name != "/"
 ),
 
 top_repos AS (
@@ -25,4 +27,4 @@ FROM star_events
 WHERE
   repo IN (SELECT repo FROM top_repos)
 GROUP BY 1, 2
-ORDER BY 2 ASC, 3 DESC
+ORDER BY 2 DESC, 3 DESC
