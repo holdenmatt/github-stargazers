@@ -1,6 +1,14 @@
 # github-stargazers
 
-Aggregate github star counts from GH Archive (via BigQuery) and publish as Parquet.
+Aggregate github star counts from
+[GH Archive](https://www.gharchive.org/#bigquery) data in BigQuery
+and publish as Parquet.
+
+## Caveats
+
+- GH Archive only records star events, not un-stars, so star counts are only approximate (slightly overstated).
+- To avoid noise, we count unique _users_ starring a repo, not raw events.
+- See the query [here](https://github.com/holdenmatt/github-stargazers/blob/main/src/query.sql).
 
 ## Download data
 
